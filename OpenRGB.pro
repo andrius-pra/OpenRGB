@@ -65,6 +65,7 @@ INCLUDEPATH +=                                                                  
     dependencies/Swatches/                                                                      \
     dependencies/CRCpp/                                                                         \
     dependencies/hidapi/                                                                        \
+    dependencies/hidapi-latest/                                                                 \
     dependencies/hueplusplus-1.0.0/include                                                      \
     dependencies/hueplusplus-1.0.0/include/hueplusplus                                          \
     dependencies/httplib                                                                        \
@@ -239,6 +240,7 @@ HEADERS +=                                                                      
     dependencies/ColorWheel/ColorWheel.h                                                        \
     dependencies/Swatches/swatches.h                                                            \
     dependencies/hidapi/hidapi/hidapi.h                                                         \
+    dependencies/hidapi-latest/hidapi/hidapi.h                                                  \
     dependencies/json/json.hpp                                                                  \
     dependencies/libcmmk/include/libcmmk/libcmmk.h                                              \
     dependencies/libcmmk/src/mappings/ansi/pro_s.h                                              \
@@ -813,6 +815,7 @@ contains(QMAKE_PLATFORM, freebsd) {
 SOURCES +=                                                                                      \
     Controllers/SinowealthController/GenesisXenon200Controller.cpp                              \
     Controllers/SinowealthController/RGBController_GenesisXenon200.cpp                          \
+    dependencies/hidapi-latest/hidapi.c                                                         \
     dependencies/Swatches/swatches.cpp                                                          \
     dependencies/dmiinfo.cpp                                                                    \
     dependencies/ColorWheel/ColorWheel.cpp                                                      \
@@ -1866,6 +1869,9 @@ contains(QMAKE_PLATFORM, linux) {
             LIBS += -lhidapi
         }
     }
+
+
+    LIBS += -ludev
 
     SOURCES +=                                                                                  \
     dependencies/hueplusplus-1.0.0/src/LinHttpHandler.cpp                                       \

@@ -11,7 +11,8 @@
 #include "RGBController.h"
 
 #include <string>
-#include <hidapi/hidapi.h>
+//#include <hidapi/hidapi.h>
+#include "dependencies/hidapi-latest/hidapi/hidapi.h"
 
 #pragma once
 

@@ -19,7 +19,7 @@ HyperXAlloyOrigins60and65Controller::HyperXAlloyOrigins60and65Controller(hid_dev
 
 HyperXAlloyOrigins60and65Controller::~HyperXAlloyOrigins60and65Controller()
 {
-    hid_close(dev);
+    hid_latest_close(dev);
 }
 
 std::string HyperXAlloyOrigins60and65Controller::GetDeviceLocation()
@@ -30,7 +30,7 @@ std::string HyperXAlloyOrigins60and65Controller::GetDeviceLocation()
 std::string HyperXAlloyOrigins60and65Controller::GetSerialString()
 {
     wchar_t serial_string[128];
-    int ret = hid_get_serial_number_string(dev, serial_string, 128);
+    int ret = hid_latest_get_serial_number_string(dev, serial_string, 128);
 
     if(ret != 0)
     {
@@ -96,7 +96,7 @@ void HyperXAlloyOrigins60and65Controller::SendDirectInitialization()
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_send_feature_report(dev, buf, 65);
+    hid_latest_send_feature_report(dev, buf, 65);
 }
 
 void HyperXAlloyOrigins60and65Controller::SendDirectColorPacket
@@ -139,5 +139,5 @@ void HyperXAlloyOrigins60and65Controller::SendDirectColorPacket
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_send_feature_report(dev, buf, 65);
+    hid_latest_send_feature_report(dev, buf, 65);
 }

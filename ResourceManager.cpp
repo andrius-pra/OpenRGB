@@ -26,6 +26,7 @@
 #include <stdlib.h>
 #include <string>
 #include <hidapi/hidapi.h>
+#include "dependencies/hidapi-latest/hidapi/hidapi.h"
 
 const hidapi_wrapper default_wrapper =
 {
@@ -888,6 +889,7 @@ void ResourceManager::DetectDevicesThreadFunction()
     \*-------------------------------------------------*/
     if(!hid_safe_mode)
     {
+        hid_latest_enumerate(0, 0);
         hid_devices = hid_enumerate(0, 0);
     }
 
